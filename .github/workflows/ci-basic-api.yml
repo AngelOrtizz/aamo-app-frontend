@@ -4,9 +4,9 @@ name: CI/CD Frontend
 # Me controla lo que se va ejeutar (Trigger) pull, push, pull request
 on:
   push:
-    branches: [release, develop]
+    branches: [main,release, develop]
   pull_request:
-    branches: [release, develop]
+    branches: [main,release, develop]
 
 # Pasos a realizar
 jobs:
