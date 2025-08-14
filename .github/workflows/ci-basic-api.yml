@@ -1,0 +1,48 @@
+aquie esta: # Nombre del worflow
+name: CI/CD frontend
+
+# Me controla lo que se va ejeutar (Trigger) pull, push, pull request
+on:
+  push:
+    branches: [release, develop]
+  pull_request:
+    branches: [release, develop]
+
+# Pasos a realizar
+jobs:
+  sistema-ventas-web:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4 # clonar el repositorio actual
+
+      - uses: actions/setup-node@v4 # Usar Node
+        with:
+          node-version: 22.16.0  # Versión de node (corregido el typo `node-verion` a `node-version`)
+
+      # cargar cache de node_modules, para reducir tiempo de instalación en próximas ejecuciones 
+      - name: cache node node_modules
+        id: node-cache
+        uses: actions/cache@v4
+        with:
+          path: sistema-ventas-web/node_modules
+          key: ${{ runner.os }}-node-${{ hashfiles('package-lock.json') }}
+
+      # instalar las dependencias
+      - name: Install dependencies
+        # no ejecutar si se obtuvo node-modules de cache
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image 
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: angelortizzzzz/svv:latest
