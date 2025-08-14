@@ -1,4 +1,3 @@
-aquie esta: # Nombre del worflow
 name: CI/CD frontend
 
 # Me controla lo que se va ejeutar (Trigger) pull, push, pull request
