@@ -25,8 +25,8 @@ jobs:
         id: node-cache
         uses: actions/cache@v4
         with:
-          path: sistema-ventas-web/node_modules
-          key: ${{ runner.os }}-node-${{ hashfiles('package-lock.json') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
 
       # instalar las dependencias
       - name: Install dependencies
