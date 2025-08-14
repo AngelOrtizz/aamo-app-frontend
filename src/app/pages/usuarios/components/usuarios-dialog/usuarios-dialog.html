@@ -1,0 +1,130 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <div class="header-content">
+      <mat-icon class="header-icon">person_add</mat-icon>
+      <h1 class="dialog-title">{{ data?.title }}</h1>
+    </div>
+    <div class="header-decoration"></div>
+  </div>
+  
+  <mat-dialog-content class="dialog-content">
+    <form [formGroup]="usuarioForm" (submit)="onSave()" class="dialog-form">
+      
+      <!-- Personal Information Section -->
+      <div class="form-section">
+        <div class="section-header">
+          <mat-icon>person</mat-icon>
+          <h3>Información Personal</h3>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input type="text" formControlName="nombre" matInput />
+              <mat-icon matPrefix>badge</mat-icon>
+              <mat-hint>Nombre completo del usuario</mat-hint>
+              <mat-error *ngIf="usuarioForm.get('nombre')?.touched && usuarioForm.get('nombre')?.errors">
+                {{ baseForm.getErrorMessage(usuarioForm.get('nombre')) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+          <div class="form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input type="text" formControlName="apellido" matInput />
+              <mat-icon matPrefix>badge</mat-icon>
+              <mat-hint>Apellido completo del usuario</mat-hint>
+              <mat-error *ngIf="usuarioForm.get('apellido')?.touched && usuarioForm.get('apellido')?.errors">
+                {{ baseForm.getErrorMessage(usuarioForm.get('apellido')) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account Information Section -->
+      <div class="form-section">
+        <div class="section-header">
+          <mat-icon>account_circle</mat-icon>
+          <h3>Información de Cuenta</h3>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>No. Control</mat-label>
+              <input type="text" formControlName="numero_control" matInput />
+              <mat-icon matPrefix>confirmation_number</mat-icon>
+              <mat-hint>Número de control único</mat-hint>
+              <mat-error *ngIf="usuarioForm.get('numero_control')?.touched && usuarioForm.get('numero_control')?.errors">
+                {{ baseForm.getErrorMessage(usuarioForm.get('numero_control')) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+          <div class="form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>Usuario</mat-label>
+              <input type="text" formControlName="usuario" matInput />
+              <mat-icon matPrefix>account_box</mat-icon>
+              <mat-hint>Nombre para iniciar sesión</mat-hint>
+              <mat-error *ngIf="usuarioForm.get('usuario')?.touched && usuarioForm.get('usuario')?.errors">
+                {{ baseForm.getErrorMessage(usuarioForm.get('usuario')) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="form-row full-width">
+          <div class="form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" formControlName="email" matInput />
+              <mat-icon matPrefix>email</mat-icon>
+              <mat-hint>Correo electrónico válido</mat-hint>
+              <mat-error *ngIf="usuarioForm.get('email')?.touched && usuarioForm.get('email')?.errors">
+                {{ baseForm.getErrorMessage(usuarioForm.get('email')) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="form-row full-width">
+          <div class="form-field">
+            <mat-form-field appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input [type]="hidePassword ? 'password' : 'text'" formControlName="contrasena" matInput />
+              <mat-icon matPrefix>lock</mat-icon>
+              <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" 
+                      [attr.aria-label]="'Toggle password visibility'" [attr.aria-pressed]="!hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-hint>Contraseña segura para acceso</mat-hint>
+              <mat-error *ngIf="usuarioForm.get('contrasena')?.touched && usuarioForm.get('contrasena')?.errors">
+                {{ baseForm.getErrorMessage(usuarioForm.get('contrasena')) }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="dialog-actions">
+        <button mat-flat-button color="primary" [disabled]="usuarioForm.invalid" type="submit" class="action-button primary">
+          <mat-icon>save</mat-icon>
+          {{ titleButton }}
+        </button>
+        <button mat-flat-button (click)="onClear()" type="button" class="action-button secondary">
+          <mat-icon>refresh</mat-icon>
+          Limpiar
+        </button>
+        <button mat-stroked-button mat-dialog-close class="action-button tertiary">
+          <mat-icon>close</mat-icon>
+          Cerrar
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

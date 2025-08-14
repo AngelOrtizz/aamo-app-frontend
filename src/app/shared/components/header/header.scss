@@ -1,0 +1,150 @@
+// Header component styles - Enhanced Design
+.header-toolbar {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  box-shadow: var(--shadow-md) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  padding: 0 var(--spacing-lg) !important;
+  min-height: 64px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: var(--spacing-md);
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  
+  .app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--color-surface);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .user-icon {
+    background: var(--color-accent);
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 18px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user-name {
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+}
+
+.logout-button {
+  background: var(--color-bg-tertiary) !important;
+  color: var(--color-text-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  
+  mat-icon {
+    font-size: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+  
+  &:hover {
+    background: var(--color-error) !important;
+    color: white !important;
+    border-color: var(--color-error) !important;
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  &:active {
+    transform: translateY(0px) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .brand-section .app-title {
+    font-size: 1.25rem;
+  }
+  
+  .user-info .user-name {
+    display: none;
+  }
+  
+  .user-info {
+    padding: var(--spacing-xs);
+    
+    .user-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+    }
+  }
+}
+
+// Global Material UI overrides for header
+mat-toolbar {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  box-shadow: var(--shadow-md) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  min-height: 64px !important;
+  padding: 0 !important;
+}

@@ -1,0 +1,179 @@
+// Login page styles - Dark Theme
+.fondo {
+  min-height: 100vh;
+  background: var(--color-bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+}
+
+mat-grid-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  max-width: 500px;
+  width: 100%;
+  background: var(--color-bg-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: var(--spacing-xl) !important;
+  animation: slideIn 0.5s ease-out;
+}
+
+mat-card-content {
+  text-align: center;
+  color: var(--color-text-main);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: normal;
+  text-shadow: none;
+  text-transform: none;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+// Password toggle button styling
+.mat-mdc-form-field .mat-mdc-icon-button[matSuffix] {
+  color: var(--color-text-secondary) !important;
+  margin-right: 8px !important;
+  
+  &:hover {
+    color: var(--color-accent) !important;
+    background-color: rgba(74, 158, 255, 0.1) !important;
+  }
+  
+  mat-icon {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+.full-width {
+  width: 100%;
+  
+  .mat-mdc-form-field {
+    width: 100%;
+    
+    .mdc-text-field {
+      background: var(--color-bg-tertiary) !important;
+      border-radius: var(--radius-md) !important;
+      border: 1px solid var(--color-border) !important;
+      transition: all 0.3s ease !important;
+      padding-left: var(--spacing-sm) !important; // Add left padding to the container
+      
+      &:hover {
+        border-color: var(--color-accent) !important;
+        box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.1) !important;
+      }
+      
+      &.mdc-text-field--focused {
+        background: var(--color-bg-tertiary) !important;
+        border-color: var(--color-accent) !important;
+        box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2) !important;
+      }
+    }
+    
+    .mdc-floating-label {
+      color: var(--color-text-secondary) !important;
+      font-weight: 500 !important;
+      left: var(--spacing-lg) !important; // Add left offset to floating label
+      
+      &.mdc-floating-label--float-above {
+        color: var(--color-accent) !important;
+      }
+    }
+    
+    .mdc-line-ripple::before {
+      border-bottom-color: var(--color-border) !important;
+    }
+    
+    .mdc-line-ripple::after {
+      border-bottom-color: var(--color-accent) !important;
+    }
+    
+    input {
+      color: var(--color-text-main) !important;
+      caret-color: var(--color-accent) !important;
+      font-size: 1rem !important;
+      padding: var(--spacing-md) !important;
+      padding-left: var(--spacing-lg) !important; // Add left padding for spacing from edge
+    }
+    
+    mat-error {
+      color: var(--color-error) !important;
+      font-weight: 500 !important;
+    }
+  }
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.3s ease !important;
+  margin-top: var(--spacing-lg) !important;
+  
+  &[color="primary"] {
+    background: var(--color-accent) !important;
+    color: white !important;
+    border: none !important;
+    
+    &:not(:disabled):hover {
+      background: var(--color-accent-hover) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: var(--shadow-lg) !important;
+    }
+    
+    &:disabled {
+      background: var(--color-border) !important;
+      color: var(--color-text-muted) !important;
+      cursor: not-allowed !important;
+    }
+  }
+}
+
+// Animations
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  mat-card {
+    max-width: 100%;
+    margin: var(--spacing-md);
+    padding: var(--spacing-lg) !important;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}

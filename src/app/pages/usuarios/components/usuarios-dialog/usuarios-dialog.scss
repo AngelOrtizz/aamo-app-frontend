@@ -1,0 +1,443 @@
+// Usuarios dialog styles - Enhanced UX Design
+::ng-deep .mat-mdc-dialog-container {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+  max-height: 95vh !important;
+  max-width: 95vw !important;
+  overflow: hidden !important;
+}
+
+::ng-deep .mat-mdc-dialog-surface {
+  background: var(--color-bg-secondary) !important;
+}
+
+// Host element styling
+:host {
+  display: block;
+  background-color: var(--color-bg-secondary) !important;
+}
+
+// Dialog container styling
+.dialog-container {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-main);
+  width: 100% !important; // Use full width of parent
+  height: 100% !important; // Use full height of parent
+  min-width: 750px; // Minimum for functionality
+  max-width: none !important; // Remove max-width restriction
+  min-height: 650px; // Minimum for content
+  max-height: none !important; // Remove max-height restriction
+  overflow: hidden;
+  display: flex !important; // Use flexbox for full space utilization
+  flex-direction: column !important;
+  
+  .dialog-header {
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-lg);
+    border-bottom: 2px solid var(--color-accent);
+    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-surface) 100%);
+    position: relative;
+    flex-shrink: 0 !important; // Don't shrink header
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      
+      .header-icon {
+        background: var(--color-accent);
+        color: white;
+        padding: var(--spacing-sm);
+        border-radius: var(--radius-md);
+        font-size: 28px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .dialog-title {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--color-text-main);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+    
+    .header-decoration {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+    }
+  }
+}
+
+// Form styling
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-bg-secondary) !important;
+  width: 100% !important; // Use full width available
+  max-width: none !important; // Remove width restrictions
+  min-width: 0 !important; // Allow shrinking if needed
+  flex: 1 !important; // Take all available space
+  box-sizing: border-box !important;
+}
+
+// Form sections
+.form-section {
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  width: 100% !important; // Use full width
+  max-width: none !important; // Remove width restrictions
+  box-sizing: border-box !important;
+  
+  &:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    
+    mat-icon {
+      background: var(--color-accent);
+      color: white;
+      padding: var(--spacing-xs);
+      border-radius: var(--radius-sm);
+      font-size: 20px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+// Material Dialog Content styling
+::ng-deep mat-dialog-content {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  padding: var(--spacing-xl) var(--spacing-xl) !important;
+  margin: 0 !important;
+  overflow-y: auto !important;
+  width: 100% !important; // Use full width
+  height: 100% !important; // Use full height
+  max-height: none !important; // Remove height restrictions
+  min-height: none !important; // Remove minimum height
+  flex: 1 !important; // Take all remaining space in flex container
+  
+  &.dialog-content {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important; // Align to top instead of center
+    box-sizing: border-box !important;
+  }
+}
+
+// Form rows and fields
+// Form rows
+.form-row {
+  display: flex;
+  gap: var(--spacing-lg);
+  width: 100%;
+  box-sizing: border-box;
+  
+  mat-form-field {
+    flex: 1;
+    min-width: 0; // Allow form fields to shrink
+    width: 100% !important; // Use full available width
+    max-width: none !important; // Remove width restrictions
+  }
+  
+  &.full-width {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+.form-field {
+  flex: 1;
+  min-width: 0; // Prevent flex items from overflowing
+  
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+// Enhanced form field styling
+::ng-deep .mat-mdc-form-field {
+  width: 100% !important;
+  margin-bottom: var(--spacing-md) !important;
+  
+  .mat-mdc-text-field-wrapper {
+    background: var(--color-bg-secondary) !important;
+    border-radius: var(--radius-md) !important;
+    border: 2px solid var(--color-border) !important;
+    transition: all 0.3s ease !important;
+    min-height: 60px !important; // Increased height
+    
+    &:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1) !important;
+      transform: translateY(-1px) !important;
+    }
+  }
+  
+  &.mat-focused .mat-mdc-text-field-wrapper {
+    background: var(--color-bg-secondary) !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  // Prefix icon styling
+  .mat-mdc-form-field-icon-prefix {
+    color: var(--color-accent) !important;
+    margin-right: var(--spacing-sm) !important;
+    font-size: 20px !important;
+    
+    mat-icon {
+      font-size: 20px !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+  
+  // Input field styling
+  .mat-mdc-input-element {
+    color: var(--color-text-main) !important;
+    caret-color: var(--color-accent) !important;
+    font-size: 1rem !important;
+    padding-left: var(--spacing-sm) !important; // Add space for prefix icons
+    
+    &::placeholder {
+      color: var(--color-text-tertiary) !important;
+      opacity: 0.7 !important;
+    }
+  }
+  
+  // Label styling
+  .mat-mdc-floating-label {
+    color: var(--color-text-secondary) !important;
+    font-weight: 500 !important;
+    left: 4px !important; // Adjust for better alignment
+    top: 10px !important; // Ensure it moves to the top left
+    
+    &.mdc-floating-label--float-above {
+      color: var(--color-accent) !important;
+      font-weight: 600 !important;
+      transform: translateY(-50%) scale(0.75) !important;
+    }
+  }
+  
+  // Password toggle button styling
+  .mat-mdc-icon-button[matSuffix] {
+    color: var(--color-text-secondary) !important;
+    margin-right: var(--spacing-sm) !important;
+    transition: all 0.2s ease !important;
+    
+    &:hover {
+      color: var(--color-accent) !important;
+      background-color: rgba(74, 158, 255, 0.1) !important;
+      transform: scale(1.1) !important;
+    }
+    
+    mat-icon {
+      font-size: 22px !important;
+      width: 22px !important;
+      height: 22px !important;
+    }
+  }
+  
+  // Hint styling - elegant and less intrusive
+  .mat-mdc-form-field-hint-wrapper {
+    padding-top: 4px !important;
+    
+    .mat-mdc-form-field-hint {
+      color: var(--color-text-tertiary) !important;
+      font-size: 0.75rem !important;
+      font-style: italic !important;
+      opacity: 0.8 !important;
+      line-height: 1.2 !important;
+    }
+  }
+  
+  // Error message styling - more elegant design
+  .mat-mdc-form-field-error-wrapper {
+    padding-top: 4px !important;
+    
+    .mat-mdc-form-field-error {
+      background: linear-gradient(45deg, rgba(244, 63, 94, 0.1), rgba(244, 63, 94, 0.05)) !important;
+      color: #f43f5e !important;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
+      padding: 6px 12px !important;
+      border-radius: var(--radius-sm) !important;
+      border-left: 3px solid #f43f5e !important;
+      margin-top: 4px !important;
+      box-shadow: 0 2px 8px rgba(244, 63, 94, 0.15) !important;
+      animation: errorSlideIn 0.3s ease-out !important;
+    }
+  }
+  
+  // Outline styling
+  .mat-mdc-form-field-outline {
+    border-color: var(--color-border) !important;
+  }
+  
+  .mat-mdc-form-field-flex {
+    background: transparent !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+  }
+}
+
+// Add error animation
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Dialog action buttons styling
+.dialog-actions {
+  display: flex;
+  justify-content: center !important;
+  gap: var(--spacing-lg); // Increased gap between buttons
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  border-top: 2px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, var(--color-bg-secondary) 100%);
+  
+  .action-button {
+    min-width: 160px; // Increased button width
+    padding: var(--spacing-md) var(--spacing-xl) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-radius: var(--radius-md) !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.95rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+    
+    mat-icon {
+      margin-right: var(--spacing-sm) !important;
+      font-size: 22px !important;
+      width: 22px !important;
+      height: 22px !important;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    &:hover::before {
+      left: 100%;
+    }
+    
+    &.primary {
+      background: var(--color-accent) !important;
+      color: white !important;
+      box-shadow: var(--shadow-md) !important;
+      
+      &:hover:not([disabled]) {
+        background: var(--color-accent-hover) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: var(--shadow-lg) !important;
+      }
+      
+      &[disabled] {
+        background: var(--color-bg-tertiary) !important;
+        color: var(--color-text-tertiary) !important;
+        cursor: not-allowed !important;
+        box-shadow: none !important;
+      }
+    }
+    
+    &.secondary {
+      background: var(--color-surface) !important;
+      color: var(--color-text-main) !important;
+      border: 2px solid var(--color-accent) !important;
+      
+      &:hover {
+        background: var(--color-accent) !important;
+        color: white !important;
+        transform: translateY(-2px) !important;
+        box-shadow: var(--shadow-md) !important;
+      }
+    }
+    
+    &.tertiary {
+      background: transparent !important;
+      color: var(--color-text-secondary) !important;
+      border: 2px solid var(--color-border) !important;
+      
+      &:hover {
+        background: var(--color-bg-tertiary) !important;
+        color: var(--color-text-main) !important;
+        border-color: var(--color-accent) !important;
+        transform: translateY(-1px) !important;
+      }
+    }
+  }
+}
+
+// Global dialog overlay styling - NO BACKDROP
+::ng-deep .cdk-overlay-backdrop {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+::ng-deep .cdk-overlay-container .cdk-overlay-pane {
+  border-radius: var(--radius-lg) !important;
+}

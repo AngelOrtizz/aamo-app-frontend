@@ -1,0 +1,20 @@
+<mat-toolbar class="header-toolbar">
+  <div class="header-content">
+    <div class="brand-section">
+      <span class="app-title">Seguridad App</span>
+    </div>
+    
+    <div class="spacer"></div>
+    
+    <div class="user-section">
+      <div class="user-info">
+        <mat-icon class="user-icon">person</mat-icon>
+        <span class="user-name">{{ data?.nombre ? (data.nombre + (data.apellidos ? ' ' + data.apellidos : '')) : 'Invitado' }}</span>
+      </div>
+      
+      <button mat-icon-button class="logout-button" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,286 @@
+// Home page styles - Dark Theme
+.home-container {
+  padding: var(--spacing-md) var(--spacing-xl); // Reduced vertical padding
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--color-bg-main);
+  min-height: calc(100vh - 120px); // Account for header (64px) + footer (56px)
+  max-height: calc(100vh - 120px); // Prevent overflow
+  padding-top: var(--spacing-lg); // Reduced from xxl
+  padding-bottom: var(--spacing-md); // Reduced bottom padding
+  animation: fadeIn 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Center content vertically
+  overflow: hidden; // Prevent scrolling
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.welcome-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.welcome-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+// Grid layout
+mat-grid-list {
+  margin: var(--spacing-md) auto; // Reduced margin
+  width: 100%;
+  max-width: 700px; // Slightly smaller container
+  height: auto !important;
+  min-height: 280px; // Reduced height
+  max-height: 320px; // Limit maximum height
+}
+
+mat-grid-tile {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: var(--spacing-md) !important; // Reduced padding
+}
+
+mat-grid-tile-content {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+// Card styles
+.dashboard-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl);
+  min-width: 400px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--color-text-main);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+}
+
+.card-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+  
+  mat-icon {
+    margin-right: var(--spacing-md);
+    color: var(--color-accent);
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.card-content {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-actions {
+  text-align: right;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.action-button {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--color-accent-hover);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Override Material components
+mat-card {
+  background: var(--color-bg-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important; // Enhanced shadow
+  color: var(--color-text-main) !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  max-width: 550px !important; // Slightly smaller max-width
+  min-height: 220px !important; // Reduced minimum height
+  max-height: 260px !important; // Limit maximum height
+  min-width: 400px !important; // Minimum width for visibility
+  display: flex !important;
+  flex-direction: column !important;
+  padding: var(--spacing-lg) !important; // Reduced internal padding
+  
+  &:hover {
+    border-color: var(--color-accent) !important;
+    box-shadow: var(--shadow-lg) !important;
+    transform: translateY(-2px) !important; // Reduced hover effect
+  }
+}
+
+mat-card-title {
+  font-size: 1.75rem !important; // Slightly smaller title
+  font-weight: 700 !important; // Bolder weight
+  color: var(--color-text-main) !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: var(--spacing-md) !important; // Reduced spacing
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+mat-icon {
+  margin-right: var(--spacing-md) !important; // Reduced spacing
+  color: var(--color-accent) !important;
+  font-size: 32px !important; // Slightly smaller icon
+  width: 32px !important;
+  height: 32px !important;
+}
+
+mat-card-content {
+  color: var(--color-text-secondary) !important;
+  margin-bottom: var(--spacing-lg) !important; // Reduced spacing
+  font-size: 1.1rem !important; // Slightly smaller content text
+  line-height: 1.5 !important;
+  text-align: center !important;
+  flex-grow: 1 !important; // Take available space
+}
+
+mat-card-actions {
+  text-align: right !important;
+  padding-top: var(--spacing-sm) !important; // Reduced padding
+  border-top: 1px solid var(--color-border) !important;
+  margin-top: auto !important; // Push to bottom
+}
+
+button[mat-button] {
+  background: var(--color-accent) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important; // Slightly smaller button text
+  padding: var(--spacing-sm) var(--spacing-lg) !important; // Reduced padding
+  transition: all 0.2s ease !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  
+  &:hover {
+    background: var(--color-accent-hover) !important;
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-2px) !important;
+  }
+  
+  &:active {
+    transform: translateY(0) !important;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .home-container {
+    padding: var(--spacing-sm) var(--spacing-md); // Reduced mobile padding
+    min-height: calc(100vh - 100px); // Smaller header/footer on mobile
+    max-height: calc(100vh - 100px); // Prevent overflow on mobile
+  }
+  
+  .welcome-title {
+    font-size: 2rem;
+  }
+  
+  .dashboard-card {
+    min-width: auto;
+    max-width: 100%;
+  }
+  
+  mat-grid-list {
+    height: auto !important;
+    min-height: 250px; // Smaller on mobile
+    max-height: 280px; // Limit height on mobile
+    max-width: 100% !important;
+    margin: var(--spacing-sm) auto; // Reduced margin
+  }
+  
+  mat-card {
+    min-height: 200px !important; // Smaller on mobile
+    max-height: 240px !important;
+    max-width: 100% !important;
+    min-width: 280px !important; // Smaller minimum width
+    margin: var(--spacing-sm) !important;
+    padding: var(--spacing-md) !important; // Reduced padding
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem !important; // Smaller on mobile
+  }
+  
+  mat-card-content {
+    font-size: 1rem !important; // Smaller on mobile
+    margin-bottom: var(--spacing-md) !important;
+  }
+}

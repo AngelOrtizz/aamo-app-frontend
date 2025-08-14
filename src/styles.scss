@@ -1,0 +1,277 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+:root {
+  // Dark Theme Color Palette - Clean and Modern
+  --color-bg-main: #1a1a1a;           // Deep charcoal background
+  --color-bg-secondary: #2d2d2d;      // Lighter charcoal for cards
+  --color-bg-tertiary: #3a3a3a;       // Even lighter for hover states
+  --color-surface: #404040;           // Surface elements like table headers
+  --color-surface-hover: #4a4a4a;     // Hover states
+  --color-text-main: #ffffff;         // Pure white for primary text
+  --color-text-secondary: #b0b0b0;    // Light gray for secondary text
+  --color-text-muted: #808080;        // Muted text
+  --color-accent: #4a9eff;            // Modern blue accent
+  --color-accent-hover: #357abd;      // Darker blue for hover
+  --color-success: #22c55e;           // Clean green for success
+  --color-error: #ef4444;             // Clean red for errors
+  --color-warning: #f59e0b;           // Amber for warnings
+  --color-border: #404040;            // Subtle borders
+  --color-border-light: #525252;      // Lighter borders
+  
+  // Shadows for depth
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  
+  // Border radius for consistency
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  // Spacing
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Custom scrollbar for webkit browsers
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-hover);
+}
+
+// Enhanced Snackbar styles - ERROR MUST BE RED
+.error-snackbar,
+.mat-snack-bar-container .error-snackbar {
+  background-color: var(--color-error) !important;
+  color: white !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+  font-weight: 500 !important;
+  border: 2px solid #dc2626 !important;
+}
+
+.success-snackbar,
+.mat-snack-bar-container .success-snackbar {
+  background-color: #22c55e !important;
+  color: white !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+  font-weight: 500 !important;
+  border: 2px solid #16a34a !important;
+}
+
+.warning-snackbar {
+  background-color: var(--color-warning) !important;
+  color: white !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+// COMPLETELY REMOVE DARKENING BACKDROP - NO EXCEPTIONS
+.cdk-overlay-backdrop,
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing,
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing.mat-snack-bar-backdrop,
+.mat-snack-bar-backdrop,
+.cdk-overlay-dark-backdrop,
+.cdk-overlay-transparent-backdrop {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
+
+// Ensure snackbars appear without any backdrop interference
+.mat-snack-bar-container {
+  z-index: 1001 !important;
+  position: fixed !important;
+}
+
+// Target all possible overlay scenarios for snackbars
+.cdk-overlay-container .cdk-overlay-backdrop,
+.cdk-overlay-container .cdk-overlay-backdrop-showing,
+body .cdk-overlay-container .cdk-overlay-backdrop {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
+
+// Specific targeting for any Material overlays during snackbar display
+.cdk-global-overlay-wrapper .cdk-overlay-backdrop {
+  display: none !important;
+}
+
+// Override any animations or transitions on backdrops
+.cdk-overlay-backdrop * {
+  transition: none !important;
+  animation: none !important;
+}
+
+// Force immediate appearance of snackbars without backdrop delays
+.mat-snack-bar-container {
+  animation: none !important;
+  transition: none !important;
+}
+
+// Global override for all CDK overlays to prevent darkening
+.cdk-overlay-dark-backdrop {
+  display: none !important;
+}
+
+.cdk-overlay-transparent-backdrop {
+  display: none !important;
+}
+
+// Ensure no backdrop appears regardless of configuration
+body.cdk-global-scrollblock {
+  overflow: auto !important;
+}
+
+// Remove any overlay container backdrops completely
+html .cdk-overlay-container .cdk-overlay-backdrop,
+html body .cdk-overlay-container .cdk-overlay-backdrop,
+html body div .cdk-overlay-container .cdk-overlay-backdrop {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: transparent !important;
+}
+
+// Utility classes
+.full-width { 
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }
+
+// Global Material Dialog and Overlay Fixes
+.cdk-overlay-container {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.cdk-overlay-backdrop {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.mat-mdc-dialog-container {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.mat-mdc-dialog-surface {
+  background: var(--color-bg-secondary) !important;
+}
+
+.mat-mdc-dialog-title {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+}
+
+.mat-mdc-dialog-content {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+}
+
+.mat-mdc-dialog-actions {
+  background: var(--color-bg-secondary) !important;
+}
+
+// Global password toggle button styling
+.mat-mdc-form-field .mat-mdc-icon-button[matSuffix] {
+  color: var(--color-text-secondary) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 50% !important;
+  
+  &:hover {
+    color: var(--color-accent) !important;
+    background-color: rgba(74, 158, 255, 0.1) !important;
+  }
+  
+  &:focus {
+    color: var(--color-accent) !important;
+    background-color: rgba(74, 158, 255, 0.2) !important;
+  }
+  
+  mat-icon {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+}

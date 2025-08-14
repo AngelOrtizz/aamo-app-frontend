@@ -1,0 +1,192 @@
+// Main app container styles
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-main);
+}
+
+.main-content {
+  flex: 1;
+  padding: var(--spacing-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+// Footer positioning
+app-footer {
+  margin-top: auto;
+}
+
+// Angular Material component overrides for dark theme
+.mat-mdc-card {
+  background-color: var(--color-bg-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--color-text-main) !important;
+}
+
+.mat-mdc-button {
+  border-radius: var(--radius-md) !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+}
+
+.mat-mdc-raised-button, .mat-mdc-flat-button {
+  background-color: var(--color-accent) !important;
+  color: var(--color-text-main) !important;
+  
+  &:hover {
+    background-color: var(--color-accent-hover) !important;
+    box-shadow: var(--shadow-md) !important;
+  }
+}
+
+.mat-mdc-outlined-button {
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
+  
+  &:hover {
+    background-color: rgba(74, 158, 255, 0.1) !important;
+    border-color: var(--color-accent-hover) !important;
+  }
+}
+
+.mat-mdc-icon-button {
+  color: var(--color-text-secondary) !important;
+  
+  &:hover {
+    background-color: var(--color-bg-tertiary) !important;
+    color: var(--color-text-main) !important;
+  }
+}
+
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background-color: var(--color-bg-secondary) !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .mat-mdc-form-field-label {
+    color: var(--color-text-secondary) !important;
+  }
+  
+  .mat-mdc-form-field-input {
+    color: var(--color-text-main) !important;
+  }
+  
+  .mat-mdc-form-field-underline {
+    background-color: var(--color-border) !important;
+  }
+  
+  &.mat-focused {
+    .mat-mdc-form-field-label {
+      color: var(--color-accent) !important;
+    }
+    
+    .mat-mdc-form-field-underline {
+      background-color: var(--color-accent) !important;
+    }
+  }
+}
+
+.mat-mdc-dialog-container {
+  background-color: var(--color-bg-secondary) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.mat-mdc-table {
+  background-color: transparent !important;
+  color: var(--color-text-main) !important;
+  
+  .mat-mdc-header-cell {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text-main) !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid var(--color-border-light) !important;
+  }
+  
+  .mat-mdc-cell {
+    color: var(--color-text-secondary) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+  }
+  
+  .mat-mdc-row:hover {
+    background-color: var(--color-bg-tertiary) !important;
+  }
+}
+
+.mat-mdc-toolbar {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.mat-mdc-grid-tile {
+  background-color: transparent !important;
+}
+
+.mat-mdc-menu-panel {
+  background-color: var(--color-bg-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.mat-mdc-menu-item {
+  color: var(--color-text-main) !important;
+  
+  &:hover {
+    background-color: var(--color-bg-tertiary) !important;
+  }
+}
+
+// Prevent any overlay backdrops from darkening the screen
+.cdk-overlay-backdrop,
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing,
+.mat-tooltip-backdrop,
+.mat-overlay-backdrop {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: transparent !important;
+  pointer-events: none !important;
+}
+
+// Tooltip styling without backdrop
+.mat-tooltip {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-md) !important;
+  font-size: 0.875rem !important;
+  padding: var(--spacing-xs) var(--spacing-sm) !important;
+}
+
+.mat-tooltip-panel {
+  backdrop-filter: none !important;
+}
+
+// CRITICAL: Ensure error snackbars are ALWAYS red
+.error-snackbar,
+.mat-snack-bar-container .error-snackbar,
+mat-snack-bar-container .error-snackbar {
+  background-color: #ef4444 !important;
+  color: white !important;
+  font-weight: 500 !important;
+  border: 2px solid #dc2626 !important;
+}
+
+// Global mat-error styling for forms
+mat-error,
+.mat-mdc-form-field-error {
+  color: #ef4444 !important;
+  font-weight: 500 !important;
+}

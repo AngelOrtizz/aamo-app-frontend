@@ -1,0 +1,517 @@
+// Usuarios dialog styles - Fixed for proper dark theme
+::ng-deep .mat-mdc-dialog-container {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+::ng-deep .mat-mdc-dialog-surface {
+  background: var(--color-bg-secondary) !important;
+}
+
+// Host element styling
+:host {
+  display: block;
+  background-color: var(--bg-primary) !important;
+}
+
+// Dialog container styling
+.dialog-container {
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+  min-width: 500px;
+  max-width: 600px;
+  
+  .dialog-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-primary) !important;
+    
+    .dialog-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+  }
+}
+
+// Form styling
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg-primary) !important;
+}
+
+// Material Dialog Content styling
+::ng-deep mat-dialog-content {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  padding: 20px 24px !important;
+  margin: 0 !important;
+  overflow-y: auto !important;
+  max-height: 60vh !important;
+}
+
+// Form rows and fields
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.form-field {
+  flex: 1;
+  
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+// Enhanced form field styling
+::ng-deep .mat-mdc-form-field {
+  width: 100% !important;
+  margin-bottom: 8px !important;
+  
+  .mat-mdc-text-field-wrapper {
+    background: var(--color-bg-tertiary) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--color-border) !important;
+    transition: all 0.3s ease !important;
+    
+    &:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.1) !important;
+    }
+  }
+  
+  &.mat-focused .mat-mdc-text-field-wrapper {
+    background: var(--color-bg-tertiary) !important;
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2) !important;
+  }
+  
+  // Input field styling
+  .mat-mdc-input-element {
+    color: var(--color-text-main) !important;
+    caret-color: var(--color-accent) !important;
+    
+    &::placeholder {
+      color: var(--color-text-tertiary) !important;
+      opacity: 0.7 !important;
+    }
+  }
+  
+  // Label styling
+  .mat-mdc-floating-label {
+    color: var(--color-text-secondary) !important;
+    
+    &.mdc-floating-label--float-above {
+      color: var(--color-accent) !important;
+      font-weight: 500 !important;
+    }
+  }
+  
+  // Hint styling - elegant and less intrusive
+  .mat-mdc-form-field-hint-wrapper {
+    padding-top: 4px !important;
+    
+    .mat-mdc-form-field-hint {
+      color: var(--color-text-tertiary) !important;
+      font-size: 0.75rem !important;
+      font-style: italic !important;
+      opacity: 0.8 !important;
+      line-height: 1.2 !important;
+    }
+  }
+  
+  // Error message styling - more elegant design
+        
+      &::before {
+        content: "⚠️ " !important;
+        margin-right: 4px !important;
+      }
+    }
+  }
+}
+
+// Add error animation
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Full width form rows
+.form-row.full-width {
+  width: 100%;
+  
+  .form-field {
+    width: 100%;
+  }
+}
+
+// Additional form field enhancements
+::ng-deep .mat-mdc-form-field-outline {
+  border-color: var(--color-border) !important;
+}
+
+::ng-deep .mat-mdc-form-field-flex {
+  background: transparent !important;
+  padding: var(--spacing-sm) var(--spacing-md) !important;
+}
+  
+  .mat-mdc-floating-label {
+    color: var(--color-text-secondary) !important;
+    font-weight: 500 !important;
+    
+    &.mdc-floating-label--float-above {
+      color: var(--color-accent) !important;
+    }
+  }
+  
+  .mat-mdc-form-field-infix {
+    padding: var(--spacing-sm) 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  input {
+    color: var(--color-text-main) !important;
+    caret-color: var(--color-accent) !important;
+    font-size: 1rem !important;
+    background: transparent !important;
+  }
+  
+  .mat-mdc-form-field-error {
+    color: var(--color-error) !important;
+    font-weight: 500 !important;
+  }
+  
+  .mat-mdc-form-field-underline {
+    display: none !important;
+  }
+  
+  .mdc-line-ripple {
+    display: none !important;
+  }
+  
+  .mdc-notched-outline {
+    display: none !important;
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+// Button styling for dialog
+::ng-deep .mat-mdc-dialog-actions {
+  background: var(--color-bg-secondary) !important;
+  border-top: 1px solid var(--color-border) !important;
+  padding: var(--spacing-lg) !important;
+}
+
+::ng-deep button[mat-flat-button], 
+::ng-deep button[mat-button] {
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  
+  &[color="primary"] {
+    background: var(--color-accent) !important;
+    color: white !important;
+    border: none !important;
+    
+    &:hover {
+      background: var(--color-accent-hover) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: var(--shadow-md) !important;
+    }
+    
+    &:disabled {
+      background: var(--color-border) !important;
+      color: var(--color-text-muted) !important;
+    }
+  }
+  
+  &[color="warn"] {
+    background: var(--color-error) !important;
+    color: white !important;
+    border: none !important;
+    
+    &:hover {
+      background: #dc2626 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+  }
+  
+  &[mat-button] {
+    background: transparent !important;
+    color: var(--color-text-secondary) !important;
+    border: 1px solid var(--color-border) !important;
+    
+    &:hover {
+      background: var(--color-bg-tertiary) !important;
+      color: var(--color-text-main) !important;
+      border-color: var(--color-text-main) !important;
+    }
+  }
+}
+
+// Fix for dialog title
+::ng-deep .mat-mdc-dialog-title {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border-bottom: 2px solid var(--color-accent) !important;
+  padding-bottom: var(--spacing-md) !important;
+  margin-bottom: var(--spacing-lg) !important;
+}
+
+// Fix for dialog content
+::ng-deep .mat-mdc-dialog-content {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  padding: var(--spacing-lg) !important;
+}
+.dialog-container {
+  max-width: 500px;
+  width: 100%;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.dialog-header {
+  background: var(--color-surface);
+  color: var(--color-text-main);
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dialog-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text-main);
+}
+
+.dialog-content {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-main);
+  padding: var(--spacing-lg);
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-field {
+  width: 100%;
+  
+  .mat-mdc-form-field {
+    width: 100%;
+    background: var(--color-bg-main);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    
+    &.mat-focused {
+      border-color: var(--color-accent);
+    }
+    
+    .mat-mdc-text-field-wrapper {
+      background: var(--color-bg-main);
+      border-radius: var(--radius-md);
+    }
+    
+    .mat-mdc-form-field-input {
+      color: var(--color-text-main);
+      padding: var(--spacing-md);
+    }
+    
+    .mat-mdc-form-field-label {
+      color: var(--color-text-secondary);
+    }
+    
+    &.mat-focused .mat-mdc-form-field-label {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.dialog-actions {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-main);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+
+.dialog-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid;
+  
+  &.cancel-button {
+    background: transparent;
+    color: var(--color-text-secondary);
+    border-color: var(--color-border);
+    
+    &:hover {
+      background: var(--color-bg-tertiary);
+      color: var(--color-text-main);
+      border-color: var(--color-border-light);
+    }
+  }
+  
+  &.save-button {
+    background: var(--color-accent);
+    color: var(--color-text-main);
+    border-color: var(--color-accent);
+    
+    &:hover {
+      background: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    &:disabled {
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      border-color: var(--color-surface);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.error-message {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+}
+
+// Override Material components
+mat-dialog-content {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  padding: var(--spacing-lg) !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+mat-dialog-actions {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-main) !important;
+  padding: var(--spacing-md) var(--spacing-lg) !important;
+  border-top: 1px solid var(--color-border) !important;
+  border-radius: 0 !important;
+  justify-content: flex-end !important;
+  gap: var(--spacing-sm) !important;
+}
+
+mat-form-field {
+  background: var(--color-bg-main) !important;
+  color: var(--color-text-main) !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--color-border) !important;
+  width: 100% !important;
+  
+  &.mat-focused {
+    border-color: var(--color-accent) !important;
+  }
+  
+  .mat-mdc-text-field-wrapper {
+    background: var(--color-bg-main) !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .mat-mdc-form-field-input {
+    color: var(--color-text-main) !important;
+  }
+  
+  .mat-mdc-form-field-label {
+    color: var(--color-text-secondary) !important;
+  }
+  
+  &.mat-focused .mat-mdc-form-field-label {
+    color: var(--color-accent) !important;
+  }
+}
+
+button[mat-flat-button] {
+  border-radius: var(--radius-md) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  margin: 0 !important;
+  
+  &.cancel-button {
+    background: transparent !important;
+    color: var(--color-text-secondary) !important;
+    border: 1px solid var(--color-border) !important;
+    
+    &:hover {
+      background: var(--color-bg-tertiary) !important;
+      color: var(--color-text-main) !important;
+      border-color: var(--color-border-light) !important;
+    }
+  }
+  
+  &:not(.cancel-button) {
+    background: var(--color-accent) !important;
+    color: var(--color-text-main) !important;
+    border: 1px solid var(--color-accent) !important;
+    
+    &:hover {
+      background: var(--color-accent-hover) !important;
+      border-color: var(--color-accent-hover) !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+    
+    &:disabled {
+      background: var(--color-surface) !important;
+      color: var(--color-text-muted) !important;
+      border-color: var(--color-surface) !important;
+      cursor: not-allowed !important;
+    }
+  }
+}
